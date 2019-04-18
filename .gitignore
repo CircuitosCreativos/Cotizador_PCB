@@ -1,0 +1,7 @@
+*.s#*
+*.b#*
+*.pro
+*.job
+*.lck
+*.tmp
+desktop.ini
