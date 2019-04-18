@@ -6,9 +6,12 @@ body{
 	color: #F0F0F1;
 	font-family: 'Lato', sans-serif;
 }
-input{
-	background-color: #FF5349;
-	color: #F0F0F1;
+div{
+	font-size: 16px;
+}
+#texto_capas{
+	background-color: #FFFFFF;
+	color: #0F0F0F;
 }
 /*----------------------------------------
 				Clases
