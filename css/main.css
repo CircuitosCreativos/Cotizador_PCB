@@ -9,9 +9,14 @@ body{
 div{
 	font-size: 16px;
 }
-#texto_capas{
+[type='tex']{
 	background-color: #FFFFFF;
+	text-align: center;
 	color: #0F0F0F;
+	width: 60px;
+}
+#texto_capas{
+	width: 30px;
 }
 /*----------------------------------------
 				Clases
