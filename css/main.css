@@ -1,0 +1,18 @@
+/*----------------------------------------
+				Etitequetas
+-----------------------------------------*/
+body{
+	background-color: #292C44;
+	color: #F0F0F1;
+	font-family: 'Lato', sans-serif;
+}
+input{
+	background-color: #FF5349;
+	color: #F0F0F1;
+}
+/*----------------------------------------
+				Clases
+-----------------------------------------*/
+.quitar_float{
+	float: none;
+}
