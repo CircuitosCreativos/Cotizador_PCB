@@ -18,6 +18,12 @@ div{
 #texto_capas{
 	width: 30px;
 }
+#boton_calcular{
+	background-color: #FF5349;
+	text-align: center;
+	font-size: 18px;
+	color: #F0F0F1;
+}
 /*----------------------------------------
 				Clases
 -----------------------------------------*/
