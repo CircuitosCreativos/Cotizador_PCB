@@ -1,7 +1,7 @@
 /*----------------------------------------
 			Variables globales
 -----------------------------------------*/
-const valorPanel = [56250,94500];
+const valorPanel = [37800,56250,67500,94500];
 var texCapas = document.getElementById("texto_capas");
 var texAncho = document.getElementById("texto_ancho");
 var texAlto = document.getElementById("texto_alto");
@@ -21,33 +21,47 @@ function calculaPrecio(){
 	var alto = parseInt(texAlto.value);
 	var cantidad = parseInt(textCantidad.value);
 	var area = (ancho*alto)/divFactor;
+	var areaTotal = area*cantidad;
 	var textCalcular = "";
 
 	console.log(area);
+	console.log(areaTotal);
 
-	textAreaCal.innerText = "";
+	textAreaCal.value = "";
 		
-	if(area<225&&numCapas==1){
-		textCalcular = precioPanel(numCapas,valorPanel[0]);
-		textAreaCal.innerText=textCalcular;
+	if(areaTotal<225){
+		if(numCapas==1){
+			textCalcular = precioPanel(numCapas, valorPanel[0], valorPanel[1]);
+			textAreaCal.value = textCalcular;
+			textAreaCal.innerText=textCalcular;
+		}
+		else if(numCapas==2){
+			textCalcular = precioPanel(numCapas, valorPanel[2], valorPanel[3]);
+			textAreaCal.value = textCalcular;
+			textAreaCal.innerText=textCalcular;
+		}
 	}
-	else if(area<225&&numCapas==2){
-		textCalcular = precioPanel(numCapas,valorPanel[1]);
+	else {
+		textCalcular = "Por favor llene todos los campos para poder calcular";
+		textAreaCal.value = textCalcular;
 		textAreaCal.innerText=textCalcular;
 	}
 }
 //-------------------------------------------------------------------------
 
-function precioPanel(_numCapas, _valor) {
+function precioPanel(_numCapas, _valorSim,_valorPro) {
 	var texto = "Nuestro pedido minimo es un panel de prototipo de 15cmx15cm,";
 	if(_numCapas>1){
-		texto += " para " + _numCapas + " capas de cobre tiene un valor de " + _valor;
+		texto += " para " + _numCapas + " capas de cobre tiene un valor de: \n";
+		texto += "\n1. " + _valorSim + " pesos + IVA en acabado simple";
+		texto += "\n2. " + _valorPro	+ " pesos + IVA en acabado profesional";
 	}
 	else{
-		texto += " para " + _numCapas + " capa de cobre tiene un valor de " + _valor;
+		texto += " para " + _numCapas + " capas de cobre tiene un valor de: \n";
+		texto += "\n1. " + _valorSim + " pesos + IVA en acabado simple";
+		texto += "\n2. " + _valorPro	+ " pesos + IVA en acabado profesional";
 	}
-	
-	texto += " pesos + IVA";
+		
 	console.log(texto);
 
 	return texto;
