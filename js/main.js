@@ -1,7 +1,7 @@
 /*----------------------------------------
 			Variables globales
 -----------------------------------------*/
-const valorPanel = [37800,56250,67500,94500];
+const valorCm2 = [168,250,300,420];
 var texCapas = document.getElementById("texto_capas");
 var texAncho = document.getElementById("texto_ancho");
 var texAlto = document.getElementById("texto_alto");
@@ -23,6 +23,11 @@ function calculaclick(){
 	var area = (ancho*alto)/divFactor;
 	var areaTotal = area*cantidad;
 	var textCalcular = "";
+	var valorPanel = [0,0,0,0];
+
+	for (var i = 0; i < valorPanel.length; i++) {
+		valorPanel[i] = valorCm2[i]*225;
+	}
 
 	console.log("Area unidad: " +  area);
 	console.log("Area TOTAL: " + areaTotal);
@@ -32,25 +37,20 @@ function calculaclick(){
 	if(areaTotal<=225){
 		if(numCapas==1){
 			textCalcular = precioPanel(numCapas, valorPanel[0], valorPanel[1]);
-			textAreaCal.value = textCalcular;
-			textAreaCal.innerText=textCalcular;
 		}
 		else if(numCapas==2){
 			textCalcular = precioPanel(numCapas, valorPanel[2], valorPanel[3]);
-			textAreaCal.value = textCalcular;
-			textAreaCal.innerText=textCalcular;
 		}
 	}
 	else if(areaTotal>225){
 		textCalcular = calculaPrecio(numCapas,area,cantidad);
-		textAreaCal.value = textCalcular;
-		textAreaCal.innerText=textCalcular;
 	}
 	else {
 		textCalcular = "Por favor llene todos los campos para poder calcular";
-		textAreaCal.value = textCalcular;
-		textAreaCal.innerText=textCalcular;
 	}
+	
+	textAreaCal.value = textCalcular;
+	textAreaCal.innerText=textCalcular;
 }
 //-------------------------------------------------------------------------
 
@@ -70,7 +70,7 @@ function precioPanel(_numCapas, _valorSim, _valorPro) {
 }
 //-------------------------------------------------------------------------
 function calculaPrecio(_numCapas, _area, _cantidad) {
-	var precioUnidad = [0,];
+	var precioUnidad = [0,0];
 	var precioCm2 = [0,0];
 	
 	if(_numCapas>1){
@@ -91,3 +91,4 @@ function calculaPrecio(_numCapas, _area, _cantidad) {
 
 	return texto;
 }
+//-------------------------------------------------------------------------
