@@ -1,7 +1,7 @@
 /*----------------------------------------
 			Variables globales
 -----------------------------------------*/
-const valorCm2 = [168,250,300,420];
+const valorCm2 = [168,244,300,420];
 var texCapas = document.getElementById("texto_capas");
 var texAncho = document.getElementById("texto_ancho");
 var texAlto = document.getElementById("texto_alto");
@@ -73,10 +73,30 @@ function calculaPrecio(_numCapas, _area, _cantidad) {
 	var precioUnidad = [0,0];
 	var precioCm2 = [0,0];
 	
-	if(_numCapas>1){
+	if(_numCapas==1){
 		if(_cantidad>0&&_cantidad<20){
-			precioCm2[0] = 285;
-			precioCm2[1] = 400;
+			precioCm2[0] = parseInt(valorCm2[0]/1.05);
+			precioCm2[1] = parseInt(valorCm2[1]/1.05);
+			precioUnidad[0] = _area*precioCm2[0];
+			precioUnidad[1] = _area*precioCm2[1];
+		}
+		else if(_cantidad>19&&_cantidad<51){
+			precioCm2[0] = parseInt(valorCm2[0]/1.15);
+			precioCm2[1] = parseInt(valorCm2[1]/1.15);
+			precioUnidad[0] = _area*precioCm2[0];
+			precioUnidad[1] = _area*precioCm2[1];
+		}
+	}
+	else if(_numCapas==2){
+		if(_cantidad>0&&_cantidad<20){
+			precioCm2[0] = parseInt(valorCm2[2]/1.05);
+			precioCm2[1] = parseInt(valorCm2[3]/1.05);
+			precioUnidad[0] = _area*precioCm2[0];
+			precioUnidad[1] = _area*precioCm2[1];
+		}
+		else if(_cantidad>19&&_cantidad<51){
+			precioCm2[0] = parseInt(valorCm2[2]/1.15);
+			precioCm2[1] = parseInt(valorCm2[3]/1.15);
 			precioUnidad[0] = _area*precioCm2[0];
 			precioUnidad[1] = _area*precioCm2[1];
 		}
